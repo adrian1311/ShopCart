@@ -4,8 +4,8 @@ public class Technology extends Product {
 
     private int guarantee;
 
-    public Technology(String productName, String productDescription, int productAmount, double productPrice, int guarantee) {
-        super(productName, productDescription, productAmount, productPrice);
+    public Technology(String productName, int productAmount, double productPrice, int guarantee) {
+        super(productName, productAmount, productPrice);
         this.guarantee = guarantee;
     }
 
@@ -15,5 +15,14 @@ public class Technology extends Product {
 
     public void setGuarantee(int guarantee) {
         this.guarantee = guarantee;
+    }
+
+    @Override
+    public String toString() {
+        return "Technology -->" +
+                " NAME ='" + getProductName() + '\'' +
+                ", AMOUNT ='" + getProductAmount() + '\'' +
+                ", PRICE ='" + getProductPrice() + '\'' +
+                ", GUARANTEE=" + guarantee;
     }
 }

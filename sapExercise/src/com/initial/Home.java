@@ -4,8 +4,8 @@ public class Home extends Product {
 
     private String color;
 
-    public Home(String productName, String productDescription, int productAmount, double productPrice,String color) {
-        super(productName, productDescription, productAmount, productPrice);
+    public Home(String productName, int productAmount, double productPrice,String color) {
+        super(productName, productAmount, productPrice);
         this.color = color;
     }
 
@@ -15,5 +15,14 @@ public class Home extends Product {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "Home -->" +
+                " NAME ='" + getProductName() + '\'' +
+                ", AMOUNT ='" + getProductAmount() + '\'' +
+                ", PRICE ='" + getProductPrice() + '\'' +
+                ", COLOR ='" + color + '\'';
     }
 }

@@ -20,14 +20,20 @@ public class ShoppingCart {
 
     //METHOD FOR ADD PRODUCTS
     public ArrayList<Product> addProduct(Product product, ArrayList<Product> products) {
+        for(int i = 0; i < products.size(); i++){
+            if(products.get(i).getProductName().equals(product.getProductName())){
+                System.out.println("THE PRODUCT ALREADY EXIST");
+                return products;
+            }
+        }
         products.add(product);
         return products;
     }
 
     //METHOD FOR REMOVE PRODUCTS BY NAME
-    public void deleteProduct(Product product, ArrayList<Product> products){
+    public void deleteProduct(String productName, ArrayList<Product> products){
         for (int i = 0; i < products.size(); i++) {
-            if(products.get(i).getProductName().equals(product.getProductName())){
+            if(products.get(i).getProductName().equals(productName)){
                 products.remove(products.get(i));
             }
         }
@@ -35,9 +41,16 @@ public class ShoppingCart {
 
     // METHOD FOR PRINT PRODUCTS
     public void printProducts(ArrayList<Product> products) {
-        for (int i = 0; i < products.size(); i++) {
-            System.out.println(i+1 +" "+products.get(i));
+        if(products.size() > 0){
+            for (int i = 0; i < products.size(); i++) {
+                System.out.println("--------------------------------------------------------------------------------------------------");
+                System.out.println(i+1 +" "+products.get(i));
+                System.out.println("---------------------------------------------------------------------------------------------------");
+            }
+        }else{
+            System.out.println("THE CART IS EMPTY");
         }
+
         //Print empty line
         System.out.println();
     }

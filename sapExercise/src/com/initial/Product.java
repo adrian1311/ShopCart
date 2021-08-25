@@ -3,13 +3,11 @@ package com.initial;
 public abstract class Product {
 
     private String productName;
-    private String productDescription;
     private int productAmount;
     private double productPrice;
 
-    public Product(String productName, String productDescription, int productAmount,double productPrice ){
+    public Product(String productName,int productAmount,double productPrice ){
         this.productName = productName;
-        this.productDescription = productDescription;
         this.productAmount = productAmount;
         this.productPrice = productPrice;
     }
@@ -20,14 +18,6 @@ public abstract class Product {
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
-
-    public String getProductDescription() {
-        return productDescription;
-    }
-
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
     }
 
     public int getProductAmount() {
@@ -49,9 +39,8 @@ public abstract class Product {
     @Override
     public String toString() {
         return "Product --> " +
-                "Product name ='" + productName + '\'' +
-                ", Product description ='" + productDescription + '\'' +
-                ", Product amount =" + productAmount +
-                ", Product price =" + productPrice;
+                "  NAME ='" + productName + '\'' +
+                ", AMOUNT =" + productAmount +
+                ", PRICE =" + productPrice;
     }
 }
