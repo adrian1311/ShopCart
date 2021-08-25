@@ -7,10 +7,11 @@ public class ShoppingCart {
     private double totalAmount;
 
     public ShoppingCart(){
-        totalAmount = 0;
+
     }
 
     public double calculateTotalPrice(ArrayList<Product> products) {
+        double totalAmount = 0;
         for (int i = 0; i < products.size(); i++) {
             totalAmount += products.get(i).getProductAmount() >= 2 ? products.get(i).getProductAmount() * (products.get(i).getProductPrice() * 0.9) : products.get(i).getProductAmount() * products.get(i).getProductPrice();
         }
@@ -39,5 +40,13 @@ public class ShoppingCart {
         }
         //Print empty line
         System.out.println();
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
     }
 }

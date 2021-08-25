@@ -14,27 +14,32 @@ public class Main {
         ArrayList<Product> products = new ArrayList<Product>();
         ShoppingCart shoppingCart = new ShoppingCart();
 
-        Product p = new Food("Apple","5 kg", 4, 6.60, "MEAL");
-        Product p2 = new Food("Chocolate","Milka", 2, 8.20, "SWEET");
-        Product p3 = new Technology("TV","SONY", 1, 80, 3);
-        Product p4 = new Home("Table","3x3 m", 1, 20, "black");
+        Product product = new Food("Apple","5 kg", 4, 6.60, "MEAL");
+        Product product2 = new Food("Chocolate","Milka", 2, 8.20, "SWEET");
+        Product product3 = new Technology("TV","SONY", 1, 80, 3);
+        Product product4 = new Home("Table","3x3 m", 1, 20, "black");
 
         //ADD PRODUCTS TO CART
-        shoppingCart.addProduct(p,products);
-        shoppingCart.addProduct(p2,products);
-        shoppingCart.addProduct(p3,products);
-        shoppingCart.addProduct(p4,products);
+        shoppingCart.addProduct(product,products);
+        shoppingCart.addProduct(product2,products);
+        shoppingCart.addProduct(product3,products);
+        shoppingCart.addProduct(product4,products);
 
         //PRINT PRODUCTS IN SHOPPINGCART
         shoppingCart.printProducts(products);
 
         double totalPrice = shoppingCart.calculateTotalPrice(products);
-        System.out.println(" TOTAL PRICE IN CART " + totalPrice);
+        System.out.println(" TOTAL PRICE IN CART " + totalPrice +"\n");
 
-        shoppingCart.deleteProduct(p4,products);
+
+        System.out.println("Deleting product from cart : " +product4 +"\n");
+        shoppingCart.deleteProduct(product4,products);
 
         //PRINT PRODUCTS IN SHOPPINGCART
         shoppingCart.printProducts(products);
+
+        double totalPriceAfterDelete = shoppingCart.calculateTotalPrice(products);
+        System.out.println(" TOTAL PRICE IN CART AFTER DELETE A PRODUCT  " + totalPriceAfterDelete +"\n");
     }
 
 
