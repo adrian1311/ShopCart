@@ -21,9 +21,9 @@ public class Food extends Product {
     @Override
     public String toString() {
         return "Food -->" +
-                "  NAME ='" + getProductName() + '\'' +
-                ", AMOUNT ='" + getProductAmount() + '\'' +
-                ", PRICE ='" + getProductPrice() + '\'' +
-                ", TYPE='" + type + '\'';
+                "  NAME : '" + getProductName() + '\'' +
+                ", AMOUNT : '" + getProductAmount() + '\'' +
+                ", PRICE : '" + getProductPrice() + '\'' +
+                ", TYPE : '" + type + '\'';
     }
 }

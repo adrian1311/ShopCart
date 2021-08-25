@@ -20,9 +20,9 @@ public class Home extends Product {
     @Override
     public String toString() {
         return "Home -->" +
-                " NAME ='" + getProductName() + '\'' +
-                ", AMOUNT ='" + getProductAmount() + '\'' +
-                ", PRICE ='" + getProductPrice() + '\'' +
-                ", COLOR ='" + color + '\'';
+                " NAME : '" + getProductName() + '\'' +
+                ", AMOUNT : '" + getProductAmount() + '\'' +
+                ", PRICE  :'" + getProductPrice() + '\'' +
+                ", COLOR : '" + color + '\'';
     }
 }

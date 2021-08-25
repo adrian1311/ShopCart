@@ -21,7 +21,8 @@ public class ShoppingCart {
     //METHOD FOR ADD PRODUCTS
     public ArrayList<Product> addProduct(Product product, ArrayList<Product> products) {
         for(int i = 0; i < products.size(); i++){
-            if(products.get(i).getProductName().equals(product.getProductName())){
+            //ONLY IF THE PRODUCT IS OF THE SAME TYPE AND NAME
+            if(products.get(i).getProductName().equals(product.getProductName()) && products.get(i).getClass().equals(product.getClass())){
                 System.out.println("THE PRODUCT ALREADY EXIST");
                 return products;
             }
@@ -32,6 +33,7 @@ public class ShoppingCart {
 
     //METHOD FOR REMOVE PRODUCTS BY NAME
     public void deleteProduct(String productName, ArrayList<Product> products){
+        //ONLY BY NAME
         for (int i = 0; i < products.size(); i++) {
             if(products.get(i).getProductName().equals(productName)){
                 products.remove(products.get(i));

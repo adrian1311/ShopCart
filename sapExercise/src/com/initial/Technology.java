@@ -20,9 +20,9 @@ public class Technology extends Product {
     @Override
     public String toString() {
         return "Technology -->" +
-                " NAME ='" + getProductName() + '\'' +
-                ", AMOUNT ='" + getProductAmount() + '\'' +
-                ", PRICE ='" + getProductPrice() + '\'' +
-                ", GUARANTEE=" + guarantee;
+                " NAME :'" + getProductName() + '\'' +
+                ", AMOUNT : '" + getProductAmount() + '\'' +
+                ", PRICE : '" + getProductPrice() + '\'' +
+                ", GUARANTEE : " + guarantee;
     }
 }
