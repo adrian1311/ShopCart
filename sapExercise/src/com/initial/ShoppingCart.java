@@ -34,7 +34,7 @@ public class ShoppingCart {
                     System.out.println("Insert new amount");
                     int newAmount = sn.nextInt();
                     if(newAmount <= 0){
-                        products.remove(product);
+                        products.remove(products.get(i));
                         return products;
                     }else {
                         products.get(i).setProductAmount(newAmount);
@@ -43,6 +43,7 @@ public class ShoppingCart {
                 }else if(choise.equals("N")){
                     return products;
                 }else{
+                    System.out.println("I DONT UNDERSTAND YOU !");
                     return products;
                 }
             }
