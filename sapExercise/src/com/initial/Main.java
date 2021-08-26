@@ -12,19 +12,19 @@ public class Main {
         ShoppingCart shoppingCart = new ShoppingCart();
 
         Scanner sn = new Scanner(System.in);
-        boolean exit = false;
-        boolean exit2 = false;
+        boolean exitManiMenu = false;
+        boolean exitProductsMenu = false;
         int menuOption,productOption;
 
-        while (!exit) {
+        while (!exitManiMenu) {
             printMainMenu();
             try {
-                System.out.println("CHOSE ONE OPTION");
+                System.out.println("CHOOSE ONE OPTION");
                 menuOption = sn.nextInt();
                 switch (menuOption) {
                     case 1:
-                        exit2 = false;
-                        while(!exit2){
+                        exitProductsMenu = false;
+                        while(!exitProductsMenu){
                             printProductsType();
                             try{
                                 productOption = sn.nextInt();
@@ -45,7 +45,7 @@ public class Main {
                                         shoppingCart.printProducts(products);
                                         break;
                                     case 4:
-                                        exit2=true;
+                                        exitProductsMenu=true;
                                         break;
                                     default:
                                         System.out.println("CHOOSE NUMBER BETWEEN 1 and 3");
@@ -58,7 +58,7 @@ public class Main {
                         break;
                     case 2:
                         if(products.size() == 0){
-                            System.out.println(" SHOPPING CART IS EMPTY");
+                            System.out.println(" THE CART IS EMPTY");
                         }else{
                             System.out.println(" FOR DELETE A PRODUCT ENTER THE NAME");
                             String productForDelete = sn.next();
@@ -71,7 +71,7 @@ public class Main {
                         System.out.println(" TOTAL PRICE IN CART " + totalPrice +"\n");
                         break;
                     case 4:
-                        exit = true;
+                        exitManiMenu = true;
                         break;
                     default:
                         System.out.println("CHOOSE NUMBER BETWEEN 1 and 4");
@@ -82,7 +82,6 @@ public class Main {
             }
         }
     }
-
 
     public static void printProductsType(){
         System.out.println("-----------------------------");
