@@ -13,6 +13,7 @@ public class Main {
 
         Scanner sn = new Scanner(System.in);
         boolean exit = false;
+        boolean exit2 = false;
         int menuOption,productOption;
 
         while (!exit) {
@@ -22,32 +23,47 @@ public class Main {
                 menuOption = sn.nextInt();
                 switch (menuOption) {
                     case 1:
-                        printProductsType();
-                        productOption = sn.nextInt();
-                        switch (productOption){
-                            case 1:
-                                Product proFood = createProduct("food");
-                                shoppingCart.addProduct(proFood,products);
-                                shoppingCart.printProducts(products);
-                                break;
-                            case 2:
-                                Product proHome = createProduct("home");
-                                shoppingCart.addProduct(proHome,products);
-                                shoppingCart.printProducts(products);
-                                break;
-                            case 3:
-                                Product proTechnology = createProduct("technology");
-                                shoppingCart.addProduct(proTechnology,products);
-                                shoppingCart.printProducts(products);
-                                break;
-                            default:
-                                System.out.println("CHOOSE NUMBER BETWEEN 1 and 3");
-                        }
+                        exit2 = false;
+                        while(!exit2){
+                            printProductsType();
+                            try{
+                                productOption = sn.nextInt();
+                                switch (productOption){
+                                    case 1:
+                                        Product proFood = createProduct("food");
+                                        shoppingCart.addProduct(proFood,products);
+                                        shoppingCart.printProducts(products);
+                                        break;
+                                    case 2:
+                                        Product proHome = createProduct("home");
+                                        shoppingCart.addProduct(proHome,products);
+                                        shoppingCart.printProducts(products);
+                                        break;
+                                    case 3:
+                                        Product proTechnology = createProduct("technology");
+                                        shoppingCart.addProduct(proTechnology,products);
+                                        shoppingCart.printProducts(products);
+                                        break;
+                                    case 4:
+                                        exit2=true;
+                                        break;
+                                    default:
+                                        System.out.println("CHOOSE NUMBER BETWEEN 1 and 3");
+                                }
+                            }catch (InputMismatchException e) {
+                                System.out.println("CHOOSE NUMBER BETWEEN 1 and 4");
+                                sn.next();
+                            }
+                    }
                         break;
                     case 2:
-                        System.out.println(" FOR DELETE A PRODUCT ENTER THE NAME");
-                        String productForDelete = sn.next();
-                        shoppingCart.deleteProduct(productForDelete,products);
+                        if(products.size() == 0){
+                            System.out.println(" SHOPPING CART IS EMPTY");
+                        }else{
+                            System.out.println(" FOR DELETE A PRODUCT ENTER THE NAME");
+                            String productForDelete = sn.next();
+                            shoppingCart.deleteProduct(productForDelete,products);
+                        }
                         break;
                     case 3:
                         shoppingCart.printProducts(products);
@@ -74,6 +90,7 @@ public class Main {
         System.out.println("1. FOOD");
         System.out.println("2. HOME");
         System.out.println("3. TECHNOLOGY");
+        System.out.println("4. BACK");
         System.out.println("-----------------------------");
     }
     public static void printMainMenu(){

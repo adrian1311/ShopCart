@@ -1,6 +1,8 @@
 package com.initial;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ShoppingCart {
 
@@ -20,28 +22,51 @@ public class ShoppingCart {
 
     //METHOD FOR ADD PRODUCTS
     public ArrayList<Product> addProduct(Product product, ArrayList<Product> products) {
+        Scanner sn = new Scanner(System.in);
         for(int i = 0; i < products.size(); i++){
             //ONLY IF THE PRODUCT IS OF THE SAME TYPE AND NAME
             if(products.get(i).getProductName().equals(product.getProductName()) && products.get(i).getClass().equals(product.getClass())){
                 System.out.println("THE PRODUCT ALREADY EXIST");
-                return products;
+                System.out.println(products.get(i));
+                System.out.println("DO YOU WANT TO MODIFY THE AMOUNT?");
+                String choise = sn.next();
+                if(choise.equals("Y")){
+                    System.out.println("Insert new amount");
+                    int newAmount = sn.nextInt();
+                    if(newAmount <= 0){
+                        products.remove(product);
+                        return products;
+                    }else {
+                        products.get(i).setProductAmount(newAmount);
+                        return products;
+                    }
+                }else if(choise.equals("N")){
+                    return products;
+                }else{
+                    return products;
+                }
             }
         }
         products.add(product);
         return products;
     }
 
-    //METHOD FOR REMOVE PRODUCTS BY NAME
+   /* METHOD FOR REMOVE PRODUCTS BY NAME*/
     public void deleteProduct(String productName, ArrayList<Product> products){
-        //ONLY BY NAME
-        for (int i = 0; i < products.size(); i++) {
-            if(products.get(i).getProductName().equals(productName)){
-                products.remove(products.get(i));
-            }
+        //Only by name
+        boolean found = false;
+           for (int i = 0; i < products.size(); i++) {
+               if(products.get(i).getProductName().equals(productName)){
+                   System.out.println("THE PRODUCT WAS DELETED");
+                   products.remove(products.get(i));
+                   found = true;
+               }
+           }if (found == false){
+            System.out.println("THE PRODUCT DOES NOT EXIST");
         }
     }
 
-    // METHOD FOR PRINT PRODUCTS
+     /*METHOD FOR PRINT PRODUCTS*/
     public void printProducts(ArrayList<Product> products) {
         if(products.size() > 0){
             for (int i = 0; i < products.size(); i++) {
