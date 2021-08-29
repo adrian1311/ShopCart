@@ -1,7 +1,7 @@
 package com.initial;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class ShoppingCart {
@@ -12,16 +12,17 @@ public class ShoppingCart {
 
     }
 
-    public double calculateTotalPrice(ArrayList<Product> products) {
+    public double calculateTotalPrice(List<Product> products) {
         double totalAmount = 0;
         for (int i = 0; i < products.size(); i++) {
             totalAmount += products.get(i).getProductAmount() >= 2 ? products.get(i).getProductAmount() * (products.get(i).getProductPrice() * 0.9) : products.get(i).getProductAmount() * products.get(i).getProductPrice();
+
         }
         return totalAmount > 100 ? totalAmount * 0.9 : totalAmount;
     }
 
     //METHOD FOR ADD PRODUCTS
-    public ArrayList<Product> addProduct(Product product, ArrayList<Product> products) {
+    public List<Product> addProduct(Product product, List<Product> products) {
         Scanner sn = new Scanner(System.in);
         for(int i = 0; i < products.size(); i++){
             //ONLY IF THE PRODUCT IS OF THE SAME TYPE AND NAME
@@ -53,7 +54,7 @@ public class ShoppingCart {
     }
 
    /* METHOD FOR REMOVE PRODUCTS BY NAME*/
-    public void deleteProduct(String productName, ArrayList<Product> products){
+    public void deleteProduct(String productName, List<Product> products){
         //Only by name
         boolean found = false;
            for (int i = 0; i < products.size(); i++) {
@@ -68,7 +69,7 @@ public class ShoppingCart {
     }
 
      /*METHOD FOR PRINT PRODUCTS*/
-    public void printProducts(ArrayList<Product> products) {
+    public void printProducts(List<Product> products) {
         if(products.size() > 0){
             for (int i = 0; i < products.size(); i++) {
                 System.out.println("--------------------------------------------------------------------------------------------------");

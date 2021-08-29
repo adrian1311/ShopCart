@@ -1,14 +1,12 @@
 package com.initial;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Product> products = new ArrayList<Product>();
+        List<Product> products = new LinkedList<Product>();
         ShoppingCart shoppingCart = new ShoppingCart();
 
         Scanner sn = new Scanner(System.in);

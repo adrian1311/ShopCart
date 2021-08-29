@@ -1,5 +1,6 @@
 package com.initial;
 
+
 public abstract class Product {
 
     private String productName;
